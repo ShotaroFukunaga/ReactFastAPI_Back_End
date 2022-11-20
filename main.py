@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import route_todo,route_auth
 from schemas import SuccessMsg, CsrfSettings
 from fastapi_csrf_protect import CsrfProtect
-from fastapi_csrf_protect import CsrfProtectError
+from fastapi_csrf_protect.exceptions import CsrfProtectError
 
 app = FastAPI()
 app.include_router(route_todo.router)
@@ -33,10 +33,3 @@ def csrf_protect_exception_handler(request: Request, exc: CsrfProtectError):
 def root():
   return {"message":"Welcome to Fast API"}
 
-#uvicorn main:app --reload 
-# "please exec cmd"
-# python3 -m pip install --upgrade pip
-# pip install -r requirements.txt
-
-# "this your pip packages export to requirements.txt"
-# pip freeze > requirements.txt

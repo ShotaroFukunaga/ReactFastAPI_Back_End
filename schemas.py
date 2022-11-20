@@ -4,6 +4,8 @@ from decouple import config
 
 CSRF_KEY = config("CSRF_KEY")
 
+class CsrfSettings(BaseModel):
+  secret_key: str = CSRF_KEY
 
 
 class Todo(BaseModel):
